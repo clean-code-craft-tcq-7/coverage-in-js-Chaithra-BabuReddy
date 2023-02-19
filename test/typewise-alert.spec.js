@@ -41,7 +41,7 @@ describe('test to check HI_ACTIVE_COOLING', () => {
     expect(res1).equals(`TOO_HIGH-${alertMessage.viaController}`);
 
     let res2 = myLib.checkAndAlert(alertType, coolingType, 40);
-    expect(res).equals(`NORMAL-${alertMessage.viaController}`);
+    expect(res2).equals(`NORMAL-${alertMessage.viaController}`);
   });
 
 });
@@ -56,7 +56,7 @@ describe('test to check MED_ACTIVE_COOLING', () => {
     expect(res1).equals(`TOO_HIGH-${alertMessage.viaController}`);
 
     let res2 = myLib.checkAndAlert(alertType, coolingType, 30);
-    expect(res).equals(`NORMAL-${alertMessage.viaController}`);
+    expect(res2).equals(`NORMAL-${alertMessage.viaController}`);
   });
 
 });
