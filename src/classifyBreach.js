@@ -1,8 +1,8 @@
-import { inferBreach } from './inferBreach.js';
+let inferBreach = require('./inferBreach.js');
 
-export function classifyTemperatureBreach(coolingType, temperatureInC) {
+function classifyTemperatureBreach(coolingType, temperatureInC) {
     let limit = getCoolingType(coolingType);
-    return inferBreach(temperatureInC, limit.lowerLimit, limit.upperLimit);
+    return inferBreach.inferBreach(temperatureInC, limit.lowerLimit, limit.upperLimit);
 }
 
 function getCoolingType(coolingType) {
@@ -18,3 +18,5 @@ const COOLING_TYPE = {
     'HI_ACTIVE_COOLING': [0, 45],
     'MED_ACTIVE_COOLING': [0, 40]
 }
+
+module.exports = { classifyTemperatureBreach }

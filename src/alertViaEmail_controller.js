@@ -1,10 +1,10 @@
-export function sendToController(breachType) {
+function sendToController(breachType) {
     const header = 0xfeed;
     console.log(`${header}, ${breachType}`);
     return `${breachType}-${alertMessage.viaController}`
 }
 
-export function sendToEmail(breachType) {
+function sendToEmail(breachType) {
     const recepient = 'a.b@c.com';
     const toReceiver = `To: ${recepient}`;
     if (breachType == 'TOO_LOW') {
@@ -17,7 +17,8 @@ export function sendToEmail(breachType) {
     return `${breachType}-${alertMessage.viaEmail}`
 }
 
-export const alertMessage={
-    viaController:'Alert via Controller',
-    viaEmail:'Alert via Email'
+const alertMessage = {
+    viaController: 'Alert via Controller',
+    viaEmail: 'Alert via Email'
 }
+module.exports={sendToController,sendToEmail,alertMessage}

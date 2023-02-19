@@ -1,4 +1,4 @@
-export function inferBreach(value, lowerLimit, upperLimit) {
+function inferBreach(value, lowerLimit, upperLimit) {
     if (value < lowerLimit) {
         return 'TOO_LOW';
     }
@@ -8,3 +8,4 @@ export function inferBreach(value, lowerLimit, upperLimit) {
     return 'NORMAL';
 }
 
+module.exports = { inferBreach }

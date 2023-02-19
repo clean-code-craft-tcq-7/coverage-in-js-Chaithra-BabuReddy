@@ -1,19 +1,19 @@
 
-import { sendToController } from "./alertViaEmail_controller.js";
-import { sendToEmail } from "./alertViaEmail_controller.js";
-import { classifyTemperatureBreach } from "./classifyBreach.js";
+let sendToController = require("./alertViaEmail_controller.js");
+let sendToEmail = require("./alertViaEmail_controller.js");
+let classifyBreach = require("./classifyBreach.js");
 
-export function checkAndAlert(alertTarget, batteryChar, temperatureInC) {
-  const breachType = classifyTemperatureBreach(batteryChar, temperatureInC);
+function checkAndAlert(alertTarget, batteryChar, temperatureInC) {
+  const breachType = classifyBreach.classifyTemperatureBreach(batteryChar, temperatureInC);
   return alert(breachType, alertTarget);
 }
 
-export function alert(breachType, alertTarget) {
+function alert(breachType, alertTarget) {
   if (alertTarget == 'TO_CONTROLLER') {
-    return sendToController(breachType);
+    return sendToController.sendToController(breachType);
   } else if (alertTarget == 'TO_EMAIL') {
-    return sendToEmail(breachType);
+    return sendToEmail.sendToEmail(breachType);
   }
 }
-
+module.exports = { checkAndAlert }
 
