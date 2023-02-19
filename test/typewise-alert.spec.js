@@ -17,7 +17,7 @@ describe('test to check PASSIVE_COOLING', () => {
   });
 
   it('test to check alert via Email',()=>{
-    const alertType = 'TO_CONTROLLER';
+    const alertType = 'TO_EMAIL';
     const coolingType = 'PASSIVE_COOLING';
     let res = myLib.checkAndAlert(alertType, coolingType, -1);
     expect(res).equals(`TOO_LOW-${alertMessage.viaEmail}`);
